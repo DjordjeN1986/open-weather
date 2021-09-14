@@ -1,0 +1,34 @@
+.info-card-container {
+  width: 400px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+
+  h1 {
+    color: black;
+  }
+}
+
+.weather-info {
+  width: auto;
+  padding: 20px;
+  margin-top: 10px;
+
+  p {
+    margin: 10px;
+  }
+}
