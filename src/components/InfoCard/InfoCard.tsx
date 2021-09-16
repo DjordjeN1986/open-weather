@@ -103,7 +103,7 @@ const InfoCard = ({ data }: Props) => {
               </p>
             </div>
             <div className="city-section">
-              <p className="section-para">Current weather: </p>
+              <p className="section-para">Current condition: </p>
               <p className="information-para">{data?.weather[0].main}</p>
               <WeatherIcon data={data.weather[0]} />
             </div>
