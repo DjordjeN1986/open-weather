@@ -86,20 +86,20 @@ const InfoCard = ({ data }: Props) => {
             <div className="city-section">
               <p className="section-para">Temperature:</p>
               <p className="information-para">
-                {Math.round(data?.main.temp)} °c
+                {Math.round(data?.main.temp)}°c
               </p>
             </div>
             <div className="city-section">
               <p className="section-para">Minimum expected: </p>
               <p className="information-para">
                 {" "}
-                {Math.round(data?.main.temp_min)} °c
+                {Math.round(data?.main.temp_min)}°c
               </p>
             </div>
             <div className="city-section">
               <p className="section-para">Maximum expected: </p>
               <p className="information-para">
-                {Math.round(data?.main.temp_max)} °c
+                {Math.round(data?.main.temp_max)}°c
               </p>
             </div>
             <div className="city-section">
