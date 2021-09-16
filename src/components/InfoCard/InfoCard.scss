@@ -1,5 +1,5 @@
 .info-card-container {
-  width: 400px;
+  width: 500px;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -24,11 +24,82 @@
 }
 
 .weather-info {
-  width: auto;
+  width: 300px;
   padding: 20px;
   margin-top: 10px;
+  position: relative;
 
-  p {
+  .city-information {
+    position: absolute;
+    top: 50px;
+    padding: 20px;
+  }
+
+  .city-section {
     margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    border-radius: 10px;
+    padding: 3px;
+    width: 100%;
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    &:last-child {
+      background-color: rgba($color: #4eb5f1, $alpha: 0.5);
+    }
+
+    .section-para {
+      font-size: 16px;
+      padding: 3px;
+      color: white;
+      animation: fadeInAnimation ease 3s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .information-para {
+    color: white;
+    animation: slideIn ease 2s;
+    animation-iteration-count: 1;
+  }
+}
+
+.location-information {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 2px solid black;
+  border-radius: 10px;
+
+  img {
+    height: 300px;
+    width: auto;
+    border-radius: 8px;
+  }
+}
+
+.date-section {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #4eb5f1;
+  color: white;
+  font-size: 20px;
+  animation: slideIn 1s;
+  animation-iteration-count: 1;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
   }
 }

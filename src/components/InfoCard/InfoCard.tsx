@@ -1,11 +1,36 @@
 import React from "react";
-
+import WeatherIcon from "../WeatherIcon/WeatherIcon";
 import { WeatherData } from "../Types/weather.types";
+import WarmWeather from "../../resources/warm-bg.jpeg";
+import ColdWeather from "../../resources/cold-bg.jpeg";
 import "./InfoCard.scss";
 
 interface Props {
   data: WeatherData;
 }
+
+// const iconList: WeatherType[] = [
+//   {
+//     description: "clear sky",
+//     main: "Clear",
+//     icon: Clear,
+//   },
+//   {
+//     description: "light rain",
+//     main: "Rain",
+//     icon: Rain,
+//   },
+//   {
+//     description: "overcast clouds",
+//     main: "Clouds",
+//     icon: Cloud,
+//   },
+//   {
+//     description: "overcast clouds",
+//     main: "Clouds",
+//     icon: Cloudy,
+//   },
+// ];
 
 const InfoCard = ({ data }: Props) => {
   const dateBuilder = (d: any) => {
@@ -45,12 +70,47 @@ const InfoCard = ({ data }: Props) => {
     <div className="info-card-container">
       <h1>Weather Information</h1>
       <div className="weather-info">
-        <p>
-          City: {data?.name}, {data?.sys.country}
-        </p>
-        <p>Temperature: {data?.main.temp} °c</p>
-        <div>{dateBuilder(new Date())}</div>
+        <div className="location-information">
+          {data.main.temp > 18 ? (
+            <img src={WarmWeather} alt="" />
+          ) : (
+            <img src={ColdWeather} alt="" />
+          )}
+          <div className="city-information">
+            <div className="city-section">
+              <p className="section-para">City: </p>
+              <p className="information-para">
+                {data?.name}, {data?.sys.country}
+              </p>
+            </div>
+            <div className="city-section">
+              <p className="section-para">Temperature:</p>
+              <p className="information-para">
+                {Math.round(data?.main.temp)} °c
+              </p>
+            </div>
+            <div className="city-section">
+              <p className="section-para">Minimum expected: </p>
+              <p className="information-para">
+                {" "}
+                {Math.round(data?.main.temp_min)} °c
+              </p>
+            </div>
+            <div className="city-section">
+              <p className="section-para">Maximum expected: </p>
+              <p className="information-para">
+                {Math.round(data?.main.temp_max)} °c
+              </p>
+            </div>
+            <div className="city-section">
+              <p className="section-para">Current weather: </p>
+              <p className="information-para">{data?.weather[0].main}</p>
+              <WeatherIcon data={data.weather[0]} />
+            </div>
+          </div>
+        </div>
       </div>
+      <div className="date-section">{dateBuilder(new Date())}</div>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import InfoCard from "../components/InfoCard";
-import WarningCard from "../components/WarningCard";
 import SearchBar from "../components/SearchBar";
 
 import "./Weather.scss";
@@ -32,11 +31,7 @@ const Weather = () => {
       <div className="container">
         <h1 className="weather-stats">Weather Statistics App</h1>
         <SearchBar onSearch={fetchWeather} />
-        {weather ? (
-          <InfoCard data={weather!} key={weather?.id} />
-        ) : (
-          <WarningCard />
-        )}
+        {weather ? <InfoCard data={weather!} key={weather?.id} /> : ""}
       </div>
     </main>
   );

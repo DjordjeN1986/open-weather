@@ -19,6 +19,6 @@ export interface CountryType {
 
 export interface WeatherType {
   description: string;
-  icon: string;
-  id: number;
+  main: string;
+  icon: any;
 }
